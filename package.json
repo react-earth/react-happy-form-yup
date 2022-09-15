@@ -1,0 +1,35 @@
+{
+  "name": "react-happy-form-yup",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/react-earth/react-happy-form-yup.git"
+  },
+  "keywords": [],
+  "author": "7zf001",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/react-earth/react-happy-form-yup/issues"
+  },
+  "homepage": "https://github.com/react-earth/react-happy-form-yup#readme",
+  "peerDependencies": {
+    "react": ">=16.0.0"
+  },
+  "dependencies": {
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^22.0.2",
+    "@rollup/plugin-node-resolve": "^14.1.0",
+    "rollup": "^2.79.0",
+    "rollup-plugin-dts": "^4.2.2",
+    "rollup-plugin-node-externals": "^5.0.0",
+    "rollup-plugin-typescript2": "^0.34.0",
+    "typescript": "^4.8.3"
+  }
+}

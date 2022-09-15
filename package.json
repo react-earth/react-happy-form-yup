@@ -1,11 +1,7 @@
 {
   "name": "react-happy-form-yup",
   "version": "0.1.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "description": "Adapting yup in using react-happy-form",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/react-earth/react-happy-form-yup.git"
@@ -17,6 +13,16 @@
     "url": "https://github.com/react-earth/react-happy-form-yup/issues"
   },
   "homepage": "https://github.com/react-earth/react-happy-form-yup#readme",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rimraf dist && rollup -c && rimraf dist/types",
+    "prepublishOnly": "npm run build"
+  },
   "peerDependencies": {
     "react": ">=16.0.0"
   },

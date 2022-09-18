@@ -9,18 +9,17 @@ export type Validator = <T extends Yup.AnyObjectSchema | Lazy<any>>(
   schema: T,
   schemaOptions?: Options<T>,
   validateOptions?: { mode?: "async" | "sync"; rawValues?: boolean }
-) => (values: any) => Promise<{ values: any; errors: Record<string, string> }>;
+) => (values: any) => Promise<{ errors: Record<string, string> }>;
 
 export const yupValidator: Validator =
   (schema, schemaOptions = {}, validateOptions = {}) =>
   async (values) => {
     try {
-      const result = await schema[
+      await schema[
         validateOptions.mode === "sync" ? "validateSync" : "validate"
       ](values, Object.assign({ abortEarly: false }, schemaOptions));
 
       return {
-        values: result,
         errors: {},
       };
     } catch (e: any) {
@@ -29,7 +28,6 @@ export const yupValidator: Validator =
       }
 
       return {
-        values: {},
         errors: e.inner.reduce((error: any, item: any) => {
           error[item.path] = item.message;
           return error;

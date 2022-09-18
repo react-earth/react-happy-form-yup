@@ -8,7 +8,7 @@ type Options<T extends Yup.AnyObjectSchema | Lazy<any>> = Parameters<
 export type Validator = <T extends Yup.AnyObjectSchema | Lazy<any>>(
   schema: T,
   schemaOptions?: Options<T>,
-  validateOptions?: { mode?: "async" | "sync"; rawValues?: boolean }
+  validateOptions?: { mode?: "async" | "sync" }
 ) => (values: any) => Promise<{ errors: Record<string, string> }>;
 
 export const yupValidator: Validator =

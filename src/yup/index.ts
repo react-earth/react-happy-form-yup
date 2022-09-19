@@ -1,1 +1,1 @@
-export * from "./yupValidator";
+export * from './yupValidator';

@@ -1,23 +1,22 @@
-import * as Yup from "yup";
-import type Lazy from "yup/lib/Lazy";
+import * as Yup from 'yup';
+import type Lazy from 'yup/lib/Lazy';
 
-type Options<T extends Yup.AnyObjectSchema | Lazy<any>> = Parameters<
-  T["validate"]
->[1];
+type Options<T extends Yup.AnyObjectSchema | Lazy<any>> = Parameters<T['validate']>[1];
 
 export type Validator = <T extends Yup.AnyObjectSchema | Lazy<any>>(
   schema: T,
   schemaOptions?: Options<T>,
-  validateOptions?: { mode?: "async" | "sync" }
-) => (values: any) => Promise<{ errors: Record<string, string> }>;
+  validateOptions?: {mode?: 'async' | 'sync'}
+) => (values: any) => Promise<{errors: Record<string, string>}>;
 
 export const yupValidator: Validator =
   (schema, schemaOptions = {}, validateOptions = {}) =>
   async (values) => {
     try {
-      await schema[
-        validateOptions.mode === "sync" ? "validateSync" : "validate"
-      ](values, Object.assign({ abortEarly: false }, schemaOptions));
+      await schema[validateOptions.mode === 'sync' ? 'validateSync' : 'validate'](
+        values,
+        Object.assign({abortEarly: false}, schemaOptions)
+      );
 
       return {
         errors: {},

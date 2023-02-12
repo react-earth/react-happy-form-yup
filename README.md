@@ -1,1 +1,1 @@
-# react-happy-validator
+# React Happy Form Yup Validate Adapter
